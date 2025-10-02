@@ -97,7 +97,6 @@ jobs:
 
       - name: Deploy manifests to GKE
         run: |
-          kubectl apply -f k8s/crds/
           kubectl apply -f k8s/
           kubectl rollout status deployment/nestjs-app -n $K8S_NAMESPACE
           kubectl rollout status deployment/redis -n $K8S_NAMESPACE
