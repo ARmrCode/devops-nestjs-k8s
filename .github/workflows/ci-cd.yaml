@@ -16,7 +16,6 @@ jobs:
       IMAGE_NAME: yourdockerhubuser/nestjs-app
       IMAGE_TAG: latest
       K8S_NAMESPACE: default
-      REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
 
     steps:
       - name: Checkout repository
@@ -41,8 +40,8 @@ jobs:
 
       - name: Run Redis Integration Test
         run: |
-          # Поднимаем тестовый Redis
-          docker run -d --name redis-test -p 6379:6379 redis:7
+          # Поднимаем тестовый Redis с паролем
+          docker run -d --name redis-test -p 6379:6379 -e REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} redis:7 redis-server --requirepass "${{ secrets.REDIS_PASSWORD }}"
           export REDIS_HOST=localhost
           export REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }}
           # Запускаем NestJS локально
