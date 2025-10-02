@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: yourdockerhubuser/nestjs-app
+      IMAGE_NAME: klimik/nestjs-app
       IMAGE_TAG: latest
       K8S_NAMESPACE: default
 
