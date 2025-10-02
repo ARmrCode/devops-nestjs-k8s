@@ -74,31 +74,15 @@ jobs:
           push: true
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
-      # --- GCP / GKE steps ---
-      - name: Setup Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v3
-        with:
-          version: '>=416.0.0'
-
-      - name: Authenticate with GCP
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
-
-      - name: Install GKE Auth Plugin
+      - name: Configure kubeconfig
         run: |
-          sudo apt-get update
-          sudo apt-get install -y google-cloud-sdk-gke-gcloud-auth-plugin
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
 
-      - name: Get GKE credentials
+      - name: Deploy manifests to GKE
         run: |
-          gcloud container clusters get-credentials nestjs-cluster \
-            --zone us-central1-a \
-            --project devops-test-473910
+          kubectl config current-context
           kubectl get nodes
-
-      - name: Deploy manifests
-        run: |
           kubectl apply -f k8s/
-          kubectl rollout status deployment/nestjs-app
-          kubectl rollout status deployment/redis
+          kubectl rollout status deployment/nestjs-app -n $K8S_NAMESPACE
+          kubectl rollout status deployment/redis -n $K8S_NAMESPACE
