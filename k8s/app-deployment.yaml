@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nestjs-app
-          image: nestjs-app:latest
+          image: klimik/nestjs-app:latest
           ports:
             - containerPort: 3000
           envFrom:
