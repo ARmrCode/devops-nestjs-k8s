@@ -82,9 +82,7 @@ jobs:
           version: 'v1.30.0'
 
       - name: Configure kubeconfig
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+        run: echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
 
       - name: Deploy manifests
         run: |
