@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RedisService } from './redis/redis.service';
+import { MetricsController } from './metrics/metrics.controller';
 
 @Module({
 	imports: [
