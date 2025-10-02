@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nestjs-config
+data:
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
