@@ -83,6 +83,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v3
         with:
           version: '>= 416.0.0'
+          export_default_credentials: true
 
       - name: Authenticate with GCP
         uses: google-github-actions/auth@v2
