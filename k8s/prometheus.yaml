@@ -46,7 +46,7 @@ metadata:
 spec:
   replicas: 1
   serviceAccountName: prometheus
-  serviceMonitorSelector: {}   # выбирает все ServiceMonitor во всех неймспейсах
+  serviceMonitorSelector: {}
   resources:
     requests:
       memory: 400Mi
