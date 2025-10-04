@@ -43,6 +43,8 @@ kind: Prometheus
 metadata:
   name: prometheus
   namespace: monitoring
+  labels:
+    prometheus: prometheus
 spec:
   replicas: 1
   serviceAccountName: prometheus
@@ -56,12 +58,17 @@ spec:
       cpu: 500m
   storage:
     volumeClaimTemplate:
+      metadata:
+        name: prometheus-data
       spec:
-        spec:
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 2000
-            fsGroup: 2000
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 2000
+          fsGroup: 2000
 
 ---
 apiVersion: v1
