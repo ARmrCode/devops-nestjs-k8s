@@ -38,7 +38,8 @@ metadata:
   namespace: monitoring
 spec:
   ports:
-    - port: 9121
+    - name: metrics
+      port: 9121
       targetPort: 9121
   selector:
     app: redis-exporter

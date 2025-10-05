@@ -13,7 +13,7 @@ spec:
     matchLabels:
       app: redis-exporter
   endpoints:
-    - port: "9121"
+    - port: metrics
       path: /metrics
       interval: 15s
       scrapeTimeout: 10s
