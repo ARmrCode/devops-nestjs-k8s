@@ -311,5 +311,7 @@ It includes:
 
 ### Author
 **DevOps Engineer:** Vlad Klymenchenko
+
 **Company:** NDA
+
 **Cloud:** Google Kubernetes Engine (GKE)
