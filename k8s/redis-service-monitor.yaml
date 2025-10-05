@@ -3,8 +3,6 @@ kind: ServiceMonitor
 metadata:
   name: redis-monitor
   namespace: monitoring
-  labels:
-    release: prometheus-operator
 spec:
   namespaceSelector:
     matchNames:
