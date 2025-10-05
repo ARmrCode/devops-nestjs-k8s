@@ -304,7 +304,7 @@ It includes:
 ---
 
 ### Author
-**DevOps Engineer:** Vlad Klymenchenko
+**DevOps Engineer:** Vladyslav Klimenchenko
 
 **Company:** NDA
 
