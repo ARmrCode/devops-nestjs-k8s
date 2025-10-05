@@ -251,9 +251,6 @@ Health check endpoint:
 /metrics → exposes Prometheus metrics
 ```
 ---
-
-
-
 ## 🧠 Why This Approach
 
 - **Microservice Separation:** Each component (App, Redis, Monitoring) is independent for scalability.
@@ -264,9 +261,6 @@ Health check endpoint:
 - **Scalability:** Kubernetes handles horizontal scaling based on CPU/memory.
 
 ---
-### Why This Architecture
-
-This solution was designed with real-world DevOps production standards:
 
 ### How to Deploy
 ```
