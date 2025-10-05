@@ -26,7 +26,13 @@ spec:
                 secretKeyRef:
                   name: grafana-secret
                   key: admin-password
-
+          volumeMounts:
+            - name: grafana-datasources
+              mountPath: /etc/grafana/provisioning/datasources
+      volumes:
+        - name: grafana-datasources
+          configMap:
+            name: grafana-datasources
 ---
 apiVersion: v1
 kind: Secret
@@ -36,7 +42,6 @@ metadata:
 type: Opaque
 stringData:
   admin-password: "dF0}rr1*njW3|"
-
 ---
 apiVersion: v1
 kind: Service
