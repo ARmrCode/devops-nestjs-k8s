@@ -16,23 +16,3 @@ spec:
       interval: 15s
       scrapeTimeout: 10s
       scheme: http
-
----
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: redis-monitor
-  namespace: monitoring
-spec:
-  namespaceSelector:
-    matchNames:
-      - default
-  selector:
-    matchLabels:
-      app: redis
-  endpoints:
-    - port: redis
-      path: /metrics
-      interval: 15s
-      scrapeTimeout: 10s
-      scheme: http
