@@ -6,12 +6,12 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-      - default
+      - monitoring
   selector:
     matchLabels:
-      app: redis
+      app: redis-exporter
   endpoints:
-    - port: redis
+    - port: 9121
       path: /metrics
       interval: 15s
       scrapeTimeout: 10s
