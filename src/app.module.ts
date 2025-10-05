@@ -11,7 +11,7 @@ import { MetricsController } from './metrics/metrics.controller';
 			isGlobal: true,
 		}),
 	],
-	controllers: [AppController],
+	controllers: [AppController, MetricsController],
 	providers: [AppService, RedisService],
 })
 export class AppModule { }
